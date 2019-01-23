@@ -3,8 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "hello, world"'
-                sh 'pwd'
+		retry(3) {
+                    sh 'echo "hello, world"'
+                }
             }
         }
     }
