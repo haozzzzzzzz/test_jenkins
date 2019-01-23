@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
+		sh 'go version'
 		sh 'echo "Fail!"; exit 1'
             }
         }
