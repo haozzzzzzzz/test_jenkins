@@ -1,15 +1,18 @@
 pipeline {
-    agent any
-
-    environment {
-        DISABLE_AUTH='true'
-    }
-
-    stages {
+  agent any
+  stages {
+    stage('Build') {
+      parallel {
         stage('Build') {
-            steps {
-                sh 'printenv'
-            }
+          steps {
+            sh 'printenv'
+            sh 'echo \'hello, world\''
+          }
+        }
+        stage('Compile') {
+          steps {
+            sh 'echo \'compiling\''
+          }
         }
 
         stage('Test') {
@@ -36,4 +39,8 @@ pipeline {
             }
         }
     }
+  }
+  environment {
+    DISABLE_AUTH = 'true'
+  }
 }
