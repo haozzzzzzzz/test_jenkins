@@ -5,7 +5,7 @@ pipeline {
         steps {
             sh 'printenv'
             sh 'echo \'hello, world\''
-            sh '/usr/local/bin/go version'
+            sh '/usr/local/go/bin/go version'
           }
         }
         stage('Compile') {
