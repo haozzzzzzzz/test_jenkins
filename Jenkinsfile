@@ -2,9 +2,7 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      parallel {
-        stage('Build') {
-          steps {
+        steps {
             sh 'printenv'
             sh 'echo \'hello, world\''
           }
@@ -38,8 +36,6 @@ pipeline {
                 echo 'Delivery for production'
             }
         }
-      }
-    }
   }
   environment {
     DISABLE_AUTH = 'true'
