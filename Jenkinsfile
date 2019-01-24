@@ -11,5 +11,29 @@ pipeline {
                 sh 'printenv'
             }
         }
+
+        stage('Test') {
+            steps {
+                sh 'echo test'
+            }
+        }
+
+        stage('Delivery for development') {
+            when {
+                branch 'development'
+            }
+            steps {
+                echo 'Delivery for development'
+            }
+        }
+
+        stage('Delivery for production') {
+            when {
+                branch 'production'
+            }
+            steps {
+                echo 'Delivery for production'
+            }
+        }
     }
 }
