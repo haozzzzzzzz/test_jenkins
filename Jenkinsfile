@@ -1,5 +1,8 @@
 pipeline {
   agent any
+    environment {
+      DISABLE_AUTH = 'true'
+    }
   stages {
     stage('Build') {
         steps {
@@ -37,8 +40,5 @@ pipeline {
                 echo 'Delivery for production'
             }
         }
-  }
-  environment {
-    DISABLE_AUTH = 'true'
   }
 }
